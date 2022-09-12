@@ -1,4 +1,11 @@
-<div>
+<div *ngIf="contactList.length === 0">
+  <h1>A lista de contatos está vaiza</h1>
+</div>
+<div
+  *ngFor="let contact of contactList; let i = index"
+  [contact]= "contact"
+  [index]= "i">
+
   <em>Nome:
     <input
     #nameUpdate
@@ -43,13 +50,19 @@
   <button
   type="button"
   class="save-btn"
-  (click)="onUpdate(nameUpdate, lastanameUpdate, adressUpdate, phoneUpdate)"
+  (click)="onUpdate(nameUpdate, lastanameUpdate, adressUpdate, phoneUpdate, i)"
   [hidden]="!enableInput"
   >Salvar</button>
 
   <button
   type="button"
+  class="details-btn"
+  (click)="onShowDetails()"
+  >Detalhes</button>
+
+  <button
+  type="button"
   class="delete-btn"
-  (click)="onDelete()">Excluir</button>
+  (click)="onDelete(i)">Excluir</button>
   <hr>
 </div>

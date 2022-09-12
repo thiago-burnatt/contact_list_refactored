@@ -8,21 +8,31 @@ import { FormModel } from '../model/formModel';
   styleUrls: ['./contact-display.component.css']
 })
 export class ContactDisplayComponent {
-  @Input() contact: FormModel;
-  @Input() index: number;
+  contactList: FormModel[] = [];
   enableInput: boolean = false;
 
   constructor(private dataService: DataService) { }
 
-  onDelete() {
-    this.dataService.deleteFromArray(this.index);
+  ngOnInit() {
+    this.contactList = this.dataService.contactList;
+
+    if (localStorage.hasOwnProperty("contacts")) {
+      for (let contact of JSON.parse(localStorage.getItem("contacts"))) {
+        this.contactList.push(contact)
+      }
+    }
+  }
+
+  onDelete(i: number) {
+    this.dataService.deleteFromArray(i);
   }
 
   onUpdate(
     nameUpdate: HTMLInputElement,
     lastanameUpdate: HTMLInputElement,
     adressUpdate: HTMLInputElement,
-    phoneUpdate: HTMLInputElement) {
+    phoneUpdate: HTMLInputElement,
+    index: number) {
     this.dataService.updateFromArray(
       new FormModel(
         nameUpdate.value,
@@ -30,9 +40,13 @@ export class ContactDisplayComponent {
         adressUpdate.value,
         phoneUpdate.valueAsNumber,
         new Date().toLocaleString()
-    ), this.index)
+    ), index)
 
     this.enableInput = !this.enableInput;
+  }
+
+  onShowDetails() {
+
   }
 
   onEnableInput() {

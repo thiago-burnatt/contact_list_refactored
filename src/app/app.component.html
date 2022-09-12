@@ -6,12 +6,9 @@
 
   <div class="contact-list">
     <div class="empty-message">
-      <h1 *ngIf="contactList.length === 0">A lista de contatos está vazia</h1>
     </div>
     <app-contact-display
-    *ngFor="let contact of contactList; let i = index"
-    [contact]= "contact"
-    [index]= "i"
+
     ></app-contact-display>
   </div>
 </section>

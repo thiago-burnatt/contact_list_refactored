@@ -45,6 +45,10 @@ button {
 .delete-btn {
   background-color: rgb(238, 102, 102);
 }
+
+.details-btn {
+  background-color: coral;
+}
 /*
 .show-border-input {
   border: solid black 1px;

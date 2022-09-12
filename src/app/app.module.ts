@@ -8,12 +8,14 @@ import { ContactDisplayComponent } from './contact-display/contact-display.compo
 import { DataService } from './services/data.service';
 import { FormService } from './services/form.service';
 import { LocalStorageService } from './services/localStorage.service';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    ContactDisplayComponent
+    ContactDisplayComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule
