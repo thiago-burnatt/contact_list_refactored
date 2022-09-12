@@ -1,0 +1,36 @@
+<div class="form-div">
+  <form action="">
+
+    <label for="name">Nome</label>
+    <input type="text" name="name"
+    #nameInput>
+
+    <label for="lastName">Sobrenome</label>
+    <input type="text" name="lastName"
+    #lastNameInput>
+
+    <label for="adress">Endereço</label>
+    <input  type="text" name="adress"
+    #adressInput>
+
+    <label for="phone">Telefone</label>
+    <input type="number" name="phone"
+    #phoneInput>
+
+    <button type="button" (click)="onSubmit(
+      nameInput,
+      lastNameInput,
+      adressInput,
+      phoneInput
+      )">Cadastrar</button>
+
+
+    <button type="button" (click)="clearFieldsBtn(
+      nameInput,
+      lastNameInput,
+      adressInput,
+      phoneInput
+      )
+      ">Limpar campos</button>
+  </form>
+</div>
