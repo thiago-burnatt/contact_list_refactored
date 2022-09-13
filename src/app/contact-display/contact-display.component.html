@@ -1,4 +1,4 @@
-<div *ngIf="contactList.length === 0">
+<div *ngIf="contactList.length === 0" class="empty-message">
   <h1>A lista de contatos está vaiza</h1>
 </div>
 <div
@@ -22,14 +22,6 @@
     type="text"
     value="{{ contact.lastName }}">
   </em>
-  <em>Endereço:
-    <input
-    #adressUpdate
-    [disabled]="!enableInput"
-    [ngClass]="{'show-border-input': enableInput}"
-    type="text"
-    value="{{ contact.adress }}">
-  </em>
   <em>Telefone:
     <input
     #phoneUpdate
@@ -38,26 +30,11 @@
     type="number"
     value="{{ contact.phone }}">
   </em>
-  <em>Última alteração: {{ contact.createdAt}}</em>
-
-  <button
-  type="button"
-  class="edit-btn"
-  (click)="onEnableInput()"
-  [hidden]="enableInput"
-  >Editar</button>
-
-  <button
-  type="button"
-  class="save-btn"
-  (click)="onUpdate(nameUpdate, lastanameUpdate, adressUpdate, phoneUpdate, i)"
-  [hidden]="!enableInput"
-  >Salvar</button>
 
   <button
   type="button"
   class="details-btn"
-  (click)="onShowDetails()"
+  [routerLink]="['/edit', i]"
   >Detalhes</button>
 
   <button

@@ -34,20 +34,12 @@ button {
   margin-top: 5px;
 }
 
-.edit-btn {
-  background-color: rgb(150, 150, 209);
-}
-
-.save-btn {
-  background-color: rgb(106, 236, 106);
-}
-
 .delete-btn {
   background-color: rgb(238, 102, 102);
 }
 
 .details-btn {
-  background-color: coral;
+  background-color: rgb(29, 180, 250);
 }
 /*
 .show-border-input {

@@ -17,13 +17,15 @@
     <input type="number" name="phone"
     #phoneInput>
 
-    <button type="button" (click)="onSubmit(
+    <button
+    [routerLink]="['']"
+    type="button"
+    (click)="onSubmit(
       nameInput,
       lastNameInput,
       adressInput,
       phoneInput
       )">Cadastrar</button>
-
 
     <button type="button" (click)="clearFieldsBtn(
       nameInput,

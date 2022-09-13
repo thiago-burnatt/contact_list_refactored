@@ -1,1 +1,69 @@
-<p>contact-details works!</p>
+<div *ngIf="!contact">
+  <h2>Contato não encontrado!</h2>
+  <button
+  [routerLink]="['']"
+  type="button"
+  >Voltar</button>
+</div>
+
+<div *ngIf="contact">
+  <em>Nome:
+    <input
+    #nameUpdate
+    [disabled]="!enableInput"
+    [ngClass]="{'show-border-input': enableInput}"
+    type="text"
+    value="{{ contact.name }}">
+  </em>
+  <em>Sobrenome:
+    <input
+    #lastanameUpdate
+    [disabled]="!enableInput"
+    [ngClass]="{'show-border-input': enableInput}"
+    type="text"
+    value="{{ contact.lastName }}">
+  </em>
+  <em>Endereço:
+    <input
+    #adressUpdate
+    [disabled]="!enableInput"
+    [ngClass]="{'show-border-input': enableInput}"
+    type="text"
+    value="{{ contact.adress }}">
+  </em>
+  <em>Telefone:
+    <input
+    #phoneUpdate
+    [disabled]="!enableInput"
+    [ngClass]="{'show-border-input': enableInput}"
+    type="number"
+    value="{{ contact.phone }}">
+  </em>
+  <em>Última alteração: {{ contact.createdAt}}</em>
+
+  <button
+  type="button"
+  class="edit-btn"
+  (click)="onEnableInput()"
+  [hidden]="enableInput"
+  >Editar</button>
+
+  <button
+  type="button"
+  class="save-btn"
+  (click)="onUpdate(nameUpdate, lastanameUpdate, adressUpdate, phoneUpdate)"
+  [hidden]="!enableInput"
+  >Salvar</button>
+
+  <button
+  type="button"
+  class="delete-btn"
+  (click)="onDelete()"
+  >Excluir</button>
+
+  <button
+  type="button"
+  class="back-btn"
+  (click)="onGoBack()"
+  >Voltar</button>
+</div>

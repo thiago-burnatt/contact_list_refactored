@@ -9,16 +9,21 @@ import { DataService } from './services/data.service';
 import { FormService } from './services/form.service';
 import { LocalStorageService } from './services/localStorage.service';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { AppRoutingModule } from './app.routing';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ContactDisplayComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [DataService, FormService, LocalStorageService],
   bootstrap: [AppComponent]
