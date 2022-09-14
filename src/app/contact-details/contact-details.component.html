@@ -1,9 +1,16 @@
-<div *ngIf="!contact">
-  <h2>Contato não encontrado!</h2>
-  <button
-  [routerLink]="['']"
-  type="button"
-  >Voltar</button>
+<div *ngIf="!contact" class="page-not-found">
+
+  <div  class="page-not-found-btn">
+    <h2>Contato não encontrado!</h2>
+  </div>
+
+  <div class="page-not-found-btn">
+    <button
+    [routerLink]="['']"
+    type="button"
+    >Voltar</button>
+  </div>
+
 </div>
 
 <div *ngIf="contact">

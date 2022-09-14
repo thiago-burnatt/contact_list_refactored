@@ -45,3 +45,24 @@ button {
 .back-btn {
   background-color: rgb(144, 207, 35);
 }
+
+.page-not-found {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.page-not-found-btn {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 2px;
+  border-radius: 7px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  background-color: coral;
+}
