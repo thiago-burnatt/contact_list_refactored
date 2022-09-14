@@ -1,14 +1,12 @@
 import { LocalStorageService } from './localStorage.service';
 import { Injectable } from "@angular/core";
 import { FormModel } from "../model/formModel";
-import { Router } from '@angular/router';
 
 @Injectable()
 export class DataService {
   contactList: FormModel[] = [];
 
-  constructor(private localStorageService: LocalStorageService,
-              private router: Router) {}
+  constructor(private localStorageService: LocalStorageService) {}
 
   createNew(data: FormModel) {
     this.contactList.push(data);

@@ -20,19 +20,11 @@
     <button
     [routerLink]="['']"
     type="button"
-    (click)="onSubmit(
-      nameInput,
-      lastNameInput,
-      adressInput,
-      phoneInput
-      )">Cadastrar</button>
+    (click)="onSubmit(nameInput, lastNameInput, adressInput, phoneInput)"
+    >Cadastrar</button>
 
-    <button type="button" (click)="clearFieldsBtn(
-      nameInput,
-      lastNameInput,
-      adressInput,
-      phoneInput
-      )
-      ">Limpar campos</button>
+    <button type="button"
+    (click)="clearFieldsBtn(nameInput, lastNameInput,adressInput,phoneInput)"
+    >Limpar campos</button>
   </form>
 </div>
