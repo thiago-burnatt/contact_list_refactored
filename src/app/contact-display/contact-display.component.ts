@@ -1,6 +1,9 @@
 import { DataService } from './../services/data.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormModel } from '../model/formModel';
+
+import { faSignature, faPhone, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-contact-display',
@@ -8,6 +11,10 @@ import { FormModel } from '../model/formModel';
   styleUrls: ['./contact-display.component.css']
 })
 export class ContactDisplayComponent {
+  faSignature = faSignature;
+  faPhone = faPhone;
+  faInfoCircle = faInfoCircle;
+
   contactList: FormModel[] = [];
 
   constructor(private dataService: DataService) { }

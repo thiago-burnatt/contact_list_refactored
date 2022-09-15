@@ -7,7 +7,8 @@
   [contact]= "contact"
   [index]= "i">
 
-  <em>Nome:
+
+  <em><fa-icon [icon]="faSignature"></fa-icon> Nome:
     <input
     #nameUpdate
     [disabled]="!enableInput"
@@ -15,7 +16,7 @@
     type="text"
     value="{{ contact.name }}">
   </em>
-  <em>Sobrenome:
+  <em><fa-icon [icon]="faSignature"></fa-icon> Sobrenome:
     <input
     #lastanameUpdate
     [disabled]="!enableInput"
@@ -23,7 +24,7 @@
     type="text"
     value="{{ contact.lastName }}">
   </em>
-  <em>Telefone:
+  <em><fa-icon [icon]="faPhone"></fa-icon> Telefone:
     <input
     #phoneUpdate
     [disabled]="!enableInput"
@@ -36,7 +37,7 @@
   type="button"
   class="details-btn"
   [routerLink]="['/edit', i]"
-  >Detalhes</button>
+  >Detalhes <fa-icon [icon]="faInfoCircle"></fa-icon></button>
 
   <button
   type="button"
