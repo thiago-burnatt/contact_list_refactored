@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Params, Router } from '@angular/router';
 import { FormModel } from '../model/formModel';
@@ -25,17 +26,30 @@ export class ContactDetailsComponent implements OnInit {
     })
   }
 
-  onUpdate(
-    nameUpdate: HTMLInputElement,
-    lastanameUpdate: HTMLInputElement,
-    adressUpdate: HTMLInputElement,
-    phoneUpdate: HTMLInputElement) {
+  // onUpdate(
+  //   nameUpdate: HTMLInputElement,
+  //   lastanameUpdate: HTMLInputElement,
+  //   adressUpdate: HTMLInputElement,
+  //   phoneUpdate: HTMLInputElement) {
+  //   this.dataService.updateFromArray(
+  //     new FormModel(
+  //       nameUpdate.value,
+  //       lastanameUpdate.value,
+  //       adressUpdate.value,
+  //       phoneUpdate.value,
+  //       new Date().toLocaleString(),
+  //   ), this.id)
+
+  //   this.enableInput = !this.enableInput;
+  // }
+
+  onUpdate(form: NgForm) {
     this.dataService.updateFromArray(
       new FormModel(
-        nameUpdate.value,
-        lastanameUpdate.value,
-        adressUpdate.value,
-        phoneUpdate.value,
+        form.value.name,
+        form.value.lastname,
+        form.value.adress,
+        form.value.phone,
         new Date().toLocaleString(),
     ), this.id)
 
