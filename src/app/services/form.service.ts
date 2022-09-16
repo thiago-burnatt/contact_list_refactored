@@ -1,13 +1,12 @@
+import { NgForm } from '@angular/forms';
 export class FormService {
 
-  onClearFields(nameInput: HTMLInputElement,
-                lastNameInput: HTMLInputElement,
-                adressInput: HTMLInputElement,
-                phoneInput: HTMLInputElement)
+  onClearFields(form: NgForm)
     {
-    nameInput.value = '';
-    lastNameInput.value = '';
-    adressInput.value = '';
-    phoneInput.value = '';
+      form.value.name = '';
+      form.value.lastname = '';
+      form.value.adress = '';
+      form.value.phone = '';
+
   }
 }

@@ -35,7 +35,7 @@ export class ContactDetailsComponent implements OnInit {
         nameUpdate.value,
         lastanameUpdate.value,
         adressUpdate.value,
-        phoneUpdate.valueAsNumber,
+        phoneUpdate.value,
         new Date().toLocaleString(),
     ), this.id)
 

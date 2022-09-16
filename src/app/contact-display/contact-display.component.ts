@@ -1,5 +1,5 @@
 import { DataService } from './../services/data.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormModel } from '../model/formModel';
 
 @Component({

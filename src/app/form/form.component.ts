@@ -1,7 +1,7 @@
-import { FormService } from './../services/form.service';
 import { DataService } from './../services/data.service';
 import { FormModel } from './../model/formModel';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,27 +12,25 @@ import { Component } from '@angular/core';
 export class FormComponent {
 
   constructor(
-    private dataservice: DataService,
-    private formService: FormService)
+    private dataservice: DataService)
     { }
 
-  onSubmit(
-    nameInput: HTMLInputElement,
-    lastNameInput: HTMLInputElement,
-    adressInput: HTMLInputElement,
-    phoneInput: HTMLInputElement) {
+  onSubmit(form: NgForm) {
     this.dataservice.createNew(
       new FormModel(
-        nameInput.value,
-        lastNameInput.value,
-        adressInput.value,
-        phoneInput.valueAsNumber,
+        form.value.name,
+        form.value.lastname,
+        form.value.adress,
+        form.value.phone,
         new Date().toLocaleString()
     ))
-    this.formService.onClearFields(nameInput, lastNameInput, adressInput, phoneInput);
+    if (form.valid) {
+      form.reset();
+    }
   }
 
-  clearFieldsBtn(nameInput, lastNameInput, adressInput, phoneInput) {
-    this.formService.onClearFields(nameInput, lastNameInput, adressInput, phoneInput);
+  clearFieldsBtn(form: NgForm) {
+    form.reset();
   }
+
 }
