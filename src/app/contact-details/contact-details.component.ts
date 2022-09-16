@@ -26,23 +26,6 @@ export class ContactDetailsComponent implements OnInit {
     })
   }
 
-  // onUpdate(
-  //   nameUpdate: HTMLInputElement,
-  //   lastanameUpdate: HTMLInputElement,
-  //   adressUpdate: HTMLInputElement,
-  //   phoneUpdate: HTMLInputElement) {
-  //   this.dataService.updateFromArray(
-  //     new FormModel(
-  //       nameUpdate.value,
-  //       lastanameUpdate.value,
-  //       adressUpdate.value,
-  //       phoneUpdate.value,
-  //       new Date().toLocaleString(),
-  //   ), this.id)
-
-  //   this.enableInput = !this.enableInput;
-  // }
-
   onUpdate(form: NgForm) {
     this.dataService.updateFromArray(
       new FormModel(
@@ -52,6 +35,8 @@ export class ContactDetailsComponent implements OnInit {
         form.value.phone,
         new Date().toLocaleString(),
     ), this.id)
+
+    console.log(form.value)
 
     this.enableInput = !this.enableInput;
   }
