@@ -41,7 +41,14 @@ button {
 .details-btn {
   background-color: rgb(29, 180, 250);
 }
-/*
-.show-border-input {
-  border: solid black 1px;
-} */
+
+@media (max-width: 1000px) {
+  em {
+    font-size: 16px;
+  }
+
+  input:disabled {
+
+    font-size: 16px;
+  }
+}
