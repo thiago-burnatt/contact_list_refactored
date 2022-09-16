@@ -36,8 +36,6 @@ export class ContactDetailsComponent implements OnInit {
         new Date().toLocaleString(),
     ), this.id)
 
-    console.log(form.value)
-
     this.enableInput = !this.enableInput;
   }
 

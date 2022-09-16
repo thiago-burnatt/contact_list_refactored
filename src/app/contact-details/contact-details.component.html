@@ -20,7 +20,7 @@
         [disabled]="!enableInput"
         [ngClass]="{'show-border-input': enableInput}"
         type="text"
-        [(ngModel)]="contact.name"
+        [ngModel]="contact.name"
         name="name"
         required
         #name="ngModel">
@@ -32,7 +32,7 @@
         [disabled]="!enableInput"
         [ngClass]="{'show-border-input': enableInput}"
         type="text"
-        [(ngModel)]="contact.lastName"
+        [ngModel]="contact.lastName"
         name="lastname"
         required
         #lastname="ngModel">
@@ -43,7 +43,7 @@
         [disabled]="!enableInput"
         [ngClass]="{'show-border-input': enableInput}"
         type="text"
-        [(ngModel)]="contact.adress"
+        [ngModel]="contact.adress"
         name="adress"
         required
         #adress="ngModel">
@@ -54,7 +54,7 @@
         [disabled]="!enableInput"
         [ngClass]="{'show-border-input': enableInput}"
         type="phone"
-        [(ngModel)]="contact.phone"
+        [ngModel]="contact.phone"
         name="phone"
         required
         minlength="8"
