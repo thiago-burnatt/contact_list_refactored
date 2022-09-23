@@ -40,8 +40,10 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   onDelete() {
-    this.dataService.deleteFromArray(this.id);
-    this.router.navigate(['']);
+    if (confirm('Tem certeza?') === true) {
+      this.dataService.deleteFromArray(this.id);
+      this.router.navigate(['']);
+    }
   }
 
   onGoBack() {

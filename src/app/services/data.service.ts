@@ -23,11 +23,7 @@ export class DataService {
   }
 
   updateFromArray(data: FormModel, index: number) {
-    this.contactList[index].name = data.name;
-    this.contactList[index].lastName = data.lastName;
-    this.contactList[index].adress = data.adress;
-    this.contactList[index].phone = data.phone;
-    this.contactList[index].createdAt = data.createdAt;
+    this.contactList[index] = data;
 
     this.localStorageService.saveOnLocalStorage(this.contactList);
   }

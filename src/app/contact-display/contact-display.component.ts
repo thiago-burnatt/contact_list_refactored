@@ -17,7 +17,9 @@ export class ContactDisplayComponent {
   }
 
   onDelete(i: number) {
-    this.dataService.deleteFromArray(i);
+    if (confirm('Tem certeza?') === true) {
+      this.dataService.deleteFromArray(i);
+    }
   }
 
 }
