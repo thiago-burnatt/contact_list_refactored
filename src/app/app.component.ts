@@ -11,10 +11,6 @@ export class AppComponent implements OnInit{
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    if (localStorage.hasOwnProperty("contacts") && this.dataService.contactList.length === 0) {
-      for (let contact of JSON.parse(localStorage.getItem("contacts"))) {
-        this.dataService.contactList.push(contact);
-      }
-    }
+    this.dataService.fetchContacts();
   }
 }

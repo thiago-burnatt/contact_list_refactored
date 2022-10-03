@@ -1,4 +1,5 @@
 export class FormModel {
+  id?: string;
   name: string;
   lastName: string;
   adress: string;

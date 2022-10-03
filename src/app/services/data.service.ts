@@ -1,4 +1,6 @@
-import { LocalStorageService } from './localStorage.service';
+import { HttpClient } from "@angular/common/http";
+import { map, Subject } from "rxjs";
+
 import { Injectable } from "@angular/core";
 import { FormModel } from "../model/formModel";
 
@@ -6,11 +8,29 @@ import { FormModel } from "../model/formModel";
 export class DataService {
   contactList: FormModel[] = [];
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(private http: HttpClient) {}
 
-  createNew(data: FormModel) {
-    this.contactList.push(data);
-    this.localStorageService.saveOnLocalStorage(this.contactList);
+  createNew(contact: FormModel) {
+    this.http.post('https://contact-list-e2e9a-default-rtdb.firebaseio.com/contacts.json'
+    , contact).subscribe(() => {
+      this.contactList.push(contact);
+    });
+   }
+
+   fetchContacts() {
+    this.http.get('https://contact-list-e2e9a-default-rtdb.firebaseio.com/contacts.json')
+      .pipe(map(responseData => {
+          for (const key in responseData) {
+            this.contactList.push({...responseData[key], id: key});
+          }
+        }
+      )).subscribe(() => {
+    })
+  }
+
+  updateContacts() {
+    this.http.put('https://contact-list-e2e9a-default-rtdb.firebaseio.com/contacts.json'
+    , this.contactList).subscribe((data) => {console.log(data)});
   }
 
   findOne(id: number): FormModel {
@@ -19,13 +39,12 @@ export class DataService {
 
   deleteFromArray(index: number) {
     this.contactList.splice(index, 1);
-    this.localStorageService.saveOnLocalStorage(this.contactList);
+    this.updateContacts();
   }
 
   updateFromArray(data: FormModel, index: number) {
     this.contactList[index] = data;
-
-    this.localStorageService.saveOnLocalStorage(this.contactList);
+    this.updateContacts();
   }
 
 }
